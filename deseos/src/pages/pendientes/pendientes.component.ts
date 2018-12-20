@@ -13,7 +13,14 @@ export class PendientesPage{
 
     listaSeleccionada(lista: Lista) {
         console.log(lista);
+        this.navCtrl.push( AgregarPage, {
+            titulo: lista.titulo,
+            lista:lista
+        });
 
+    }
+    borrarLista(lista: Lista){
+        this.deseosService.borrarLista(lista);
     }
     agregarLista() {
         //this.navCtrl.push(AgregarPage);
@@ -26,11 +33,11 @@ export class PendientesPage{
             }],
             buttons: [
                 {
-                  text: 'Cancel',
+                  text: 'Cancelar',
                  
                 },
                 {
-                  text: 'Save',
+                  text: 'Agregar',
                   handler: data => {
                     console.log(data);
                     if(data.titulo.length === 0){

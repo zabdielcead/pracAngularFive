@@ -8,9 +8,22 @@
     <img src="../../assets/imgs/pendientes.jpg" alt="">
 
     <ion-list>
-        <button ion-item *ngFor="let lista of deseosService.listas" (click)="listaSeleccionada(lista)">
-          {{ lista.titulo }}
-        </button>
+        <ion-item-sliding *ngFor="let lista of deseosService.listas" (click)="listaSeleccionada(lista)">
+            <button ion-item>
+                        {{ lista.titulo }}
+                           <ion-note item-end>
+                              {{lista.items.length}} items
+                          </ion-note>
+                </button>
+            <ion-item-options side="left">
+                <button (click)="borrarLista(lista)" ion-button icon-only color="danger">
+                            <ion-icon name="close"></ion-icon>
+
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+
+
     </ion-list>
 
     <!-- Real floating action button, fixed. It will not scroll with the content -->
