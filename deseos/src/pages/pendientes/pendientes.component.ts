@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { DeseosService } from '../../services/deseo.service';
-import { Lista } from '../../models';
 import { NavController, AlertController } from 'ionic-angular';
 import { AgregarPage } from '../agregar/agregar.component';
 
@@ -11,17 +10,7 @@ import { AgregarPage } from '../agregar/agregar.component';
 export class PendientesPage{
     constructor(public deseosService:DeseosService , private navCtrl:NavController, private alertCtrl:AlertController) {}
 
-    listaSeleccionada(lista: Lista) {
-        console.log(lista);
-        this.navCtrl.push( AgregarPage, {
-            titulo: lista.titulo,
-            lista:lista
-        });
-
-    }
-    borrarLista(lista: Lista){
-        this.deseosService.borrarLista(lista);
-    }
+  
     agregarLista() {
         //this.navCtrl.push(AgregarPage);
         const alerta = this.alertCtrl.create({
